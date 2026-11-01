@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chkela — Study smarter. Not harder.</title>
+  <meta name="description" content="Stop grinding random notes for hours. Chkela shows what actually moves your Ethiopian matric score — then helps you practice it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top Announcement Banner -->
+  <div class="top-banner">
+    <div class="container banner-inner">
+      <span class="badge-pill">v2.1.7 LIVE</span>
+      <span>Join <strong>73,000+ Ethiopian high school students</strong> mastering Grade 9–12 EUEE Matric Exams.</span>
+      <button class="banner-link" onclick="openGiftModal()">CG Claim your gift →</button>
+    </div>
+  </div>
+
+  <!-- Primary Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand" onclick="switchView('landing')">
+        <div class="brand-logo">C</div>
+        <div class="brand-text">
+          <span class="brand-name">Chkela</span>
+          <span class="brand-tag">by Lolearn Solutions</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" onclick="switchView('landing')">Home</a>
+        <a href="#features" onclick="switchView('landing'); scrollToSection('features')">Features</a>
+        <a href="#practice-portal" onclick="switchView('portal')">Natural Sciences Lab</a>
+        <a href="#about" onclick="switchView('about')">About & Team</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="navLoginBtn" onclick="switchView('auth-login')">Log in</button>
+        <button class="btn btn-primary" id="navRegisterBtn" onclick="switchView('auth-register')">Get Started</button>
+        <div class="user-Session-pill hidden" id="userSessionPill">
+          <span class="user-avatar" id="userAvatarInitials">GN</span>
+          <span id="userDisplayName">Student</span>
+          <button class="btn-xs-logout" onclick="handleLogout()" title="Sign out">✕</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       VIEW 1: LANDING PAGE (chkela.com replica + interactive demo)
+       ========================================================= -->
+  <main id="view-landing" class="view-section active">
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <!-- Hero Left Copy -->
+        <div class="hero-copy">
+          <div class="eyebrow-badge">
+            <span class="dot-live"></span>
+            <span>Smarter matric prep · Grades 9–12</span>
+          </div>
+          <h1 class="hero-title">
+            Study smarter.<br />
+            <span class="gradient-text">Not harder.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Stop grinding random notes for hours. Chkela shows what actually moves your matric score — then helps you practice it with targeted past-paper drills, concise Natural Sciences notes, and instant AI explanations.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn btn-primary btn-lg" onclick="switchView('portal')">
+              Launch Web Practice Portal →
+            </button>
+            <button class="btn btn-secondary btn-lg" onclick="switchView('auth-register')">
+              Create Free Account
+            </button>
+          </div>
+
+          <!-- Store Badges -->
+          <div class="store-badges">
+            <a href="https://apps.apple.com/us/app/chkela/id6738397728" target="_blank" rel="noopener" class="store-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.06.62-2.72 1.4-.58.68-1.1 1.79-.96 2.84 1.04.08 2.08-.52 2.72-1.3z"/></svg>
+              <div>
+                <small>Download on the</small>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.chkela.v1" target="_blank" rel="noopener" class="store-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+              <div>
+                <small>GET IT ON</small>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+          </div>
+
+          <!-- Claim Your Gift Widget (Exact from chkela.com) -->
+          <div class="gift-card-inline">
+            <div class="gift-avatar">CG</div>
+            <div class="gift-info">
+              <strong>Claim your gift</strong>
+              <span>Enter your code &amp; phone → Free on App Store &amp; Google Play</span>
+            </div>
+            <button class="btn btn-sm btn-outline" onclick="openGiftModal()">Redeem</button>
+          </div>
+        </div>
+
+        <!-- Hero Right: Interactive Mobile Phone Mockup (9:41 Chkela Smarter Matric Prep) -->
+        <div class="hero-mockup-wrapper">
+          <div class="phone-frame">
+            <div class="phone-statusbar">
+              <span class="status-time">9:41</span>
+              <div class="phone-notch"></div>
+              <span class="status-icons">5G ●●● 100%</span>
+            </div>
+
+            <div class="phone-app-header">
+              <div>
+                <span class="phone-app-title">Chkela</span>
+                <span class="phone-app-sub">Smarter matric prep</span>
+              </div>
+              <span class="streak-pill">🔥 14d Streak</span>
+            </div>
+
+            <!-- Focus & Weaknesses Card -->
+            <div class="phone-focus-card">
+              <div class="focus-header">
+                <span class="focus-label">FOCUS DIAGNOSTIC</span>
+                <span class="focus-score">Projected: 545/600</span>
+              </div>
+              <div class="weak-tags">
+                <span class="weak-title">Weak:</span>
+                <span class="weak-chip chip-physics">Physics</span>
+                <span class="weak-chip chip-math">Math</span>
+                <span class="weak-chip chip-bio">Biology</span>
+              </div>
+            </div>
+
+            <!-- Interactive Chat / Drill Flow from chkela.com -->
+            <div class="phone-chat-stream" id="phoneChatStream">
+              <div class="chat-bubble user-bubble">
+                What should I practice next?
+              </div>
+              <div class="chat-bubble ai-bubble">
+                You're missing marks on <strong>Newton's laws &amp; Rotational Equilibrium</strong>. Want a 5-question drill?
+              </div>
+              <div class="chat-bubble user-bubble">
+                Yes — past paper style.
+              </div>
+              <div class="chat-bubble ai-bubble highlight-bubble">
+                <strong>Done.</strong> 5 questions from recent NEAEA papers. Finish these before revisiting notes.
+              </div>
+            </div>
+
+            <!-- Live Mini Question Inside Phone -->
+            <div class="phone-mini-drill" id="phoneMiniDrill">
+              <div class="mini-drill-top">
+                <span class="mini-tag">NEAEA PHYSICS · Q1 of 5</span>
+                <span class="mini-timer" id="miniDrillStatus">Interactive</span>
+              </div>
+              <p class="mini-question" id="miniQuestionText">
+                A 4 kg block rests on a rough incline of 30° (μs = 0.65). What is the magnitude of the static frictional force acting on the block? (Take g = 10 m/s²)
+              </p>
+              <div class="mini-options" id="miniOptions">
+                <button class="mini-opt" onclick="checkMiniAnswer(this, false)">A) 22.5 N</button>
+                <button class="mini-opt" onclick="checkMiniAnswer(this, true)">B) 20.0 N</button>
+                <button class="mini-opt" onclick="checkMiniAnswer(this, false)">C) 34.6 N</button>
+                <button class="mini-opt" onclick="checkMiniAnswer(this, false)">D) 17.3 N</button>
+              </div>
+              <div class="mini-feedback hidden" id="miniFeedback"></div>
+            </div>
+
+            <div class="phone-footer-cta">
+              <button class="btn btn-primary btn-block" onclick="switchView('portal')">
+                Open Full 5-Question NEAEA Drill →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- School Marquee Section (Exact schools from chkela.com + Dodola Ifa Boru) -->
+    <section class="schools-section">
+      <div class="container">
+        <p class="schools-heading">OUR STUDENTS COME FROM THESE SCHOOLS ACROSS ETHIOPIA</p>
+      </div>
+      <div class="marquee-container">
+        <div class="marquee-track">
+          <div class="school-pill"><strong>Sandford</strong><span>Sandford International School</span></div>
+          <div class="school-pill"><strong>ICS Addis</strong><span>International Community School</span></div>
+          <div class="school-pill"><strong>Ifa Boru</strong><span>Dodola Ifa Boru Boarding School</span></div>
+          <div class="school-pill"><strong>Nazareth</strong><span>Nazareth School</span></div>
+          <div class="school-pill"><strong>St. Joseph</strong><span>St. Joseph School</span></div>
+          <div class="school-pill"><strong>LGM</strong><span>Lycée Guébré-Mariam</span></div>
+          <div class="school-pill"><strong>Bingham</strong><span>Bingham Academy</span></div>
+          <div class="school-pill"><strong>Andinet</strong><span>Andinet International School</span></div>
+          <div class="school-pill"><strong>Ethio Parents</strong><span>Ethio Parents' School</span></div>
+          <div class="school-pill"><strong>SOT</strong><span>School of Tomorrow</span></div>
+          <div class="school-pill"><strong>One Planet</strong><span>One Planet International</span></div>
+          <div class="school-pill"><strong>BIS Addis</strong><span>British International School</span></div>
+          <div class="school-pill"><strong>Gibson</strong><span>Gibson Youth Academy</span></div>
+          <!-- Duplicate for seamless loop -->
+          <div class="school-pill"><strong>Sandford</strong><span>Sandford International School</span></div>
+          <div class="school-pill"><strong>ICS Addis</strong><span>International Community School</span></div>
+          <div class="school-pill"><strong>Ifa Boru</strong><span>Dodola Ifa Boru Boarding School</span></div>
+          <div class="school-pill"><strong>Nazareth</strong><span>Nazareth School</span></div>
+          <div class="school-pill"><strong>St. Joseph</strong><span>St. Joseph School</span></div>
+          <div class="school-pill"><strong>LGM</strong><span>Lycée Guébré-Mariam</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6-Pillar Features Section ("More marks.") -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">MORE MARKS. ZERO FLUFF.</span>
+          <h2>Built for how the Ethiopian Matric Exam actually works</h2>
+          <p>Every question, flashcard, and diagnostic drill in Chkela is engineered around real NEAEA/EAES exam patterns.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-num">01</span>
+            <h3>Practice what the exam actually asks</h3>
+            <p>Attempt full-length mock exams and chapter-wise drills modeled directly on official Grade 9–12 Ethiopian national examination blueprints.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-num">02</span>
+            <h3>Fix weak spots, skip the rest</h3>
+            <p>Real-time diagnostic telemetry pinpoints exact sub-topics costing you marks in Physics, Mathematics, Chemistry, and Biology so you never waste study hours.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-num">03</span>
+            <h3>Short drills that compound</h3>
+            <p>High-retention 5-question micro-drills, spaced-repetition flashcards, and visual brain maps designed for daily consistency.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-num">04</span>
+            <h3>Get unstuck in seconds</h3>
+            <p>Step-by-step Natural Sciences derivations and an integrated bilingual (English &amp; Amharic) AI Tutor that explains why every distractor is wrong.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-num">05</span>
+            <h3>Notes built for revision</h3>
+            <p>High-density curriculum summaries, formula sheets, and reaction pathways structured for rapid pre-exam recall—accessible online and offline.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-num">06</span>
+            <h3>Stay accountable with peers</h3>
+            <p>Climb national and school leaderboards, collaborate in peer study circles, discover post-matric scholarships, and earn referral rewards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Metrics Strip -->
+    <section class="metrics-strip">
+      <div class="container metrics-grid">
+        <div class="metric-item">
+          <span class="metric-val">73,000+</span>
+          <span class="metric-lbl">Active Student Installs</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">4.29 ★</span>
+          <span class="metric-lbl">Google Play Store Rating</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">4,500+</span>
+          <span class="metric-lbl">Curated Natural Science Items</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">Grades 9–12</span>
+          <span class="metric-lbl">Complete Ethiopian Curriculum</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       VIEW 2: NATURAL SCIENCES PRACTICE PORTAL & AI TUTOR
+       ========================================================= -->
+  <section id="view-portal" class="view-section hidden">
+    <div class="container portal-layout">
+      <!-- Sidebar: Subject Filter & Weak Spot Telemetry -->
+      <aside class="portal-sidebar">
+        <div class="sidebar-card">
+          <h3>Natural Sciences Hub</h3>
+          <p class="sidebar-note">Curated &amp; verified by <strong>Gosa Negeso Geleto</strong> (Lead Natural Sciences Curriculum Author)</p>
+          <div class="subject-Buttons">
+            <button class="subj-btn active" onclick="selectSubject('ALL', this)">All Natural Sciences</button>
+            <button class="subj-btn" onclick="selectSubject('Physics', this)">⚡ Physics (G9–12)</button>
+            <button class="subj-btn" onclick="selectSubject('Chemistry', this)">🧪 Chemistry (G9–12)</button>
+            <button class="subj-btn" onclick="selectSubject('Biology', this)">🧬 Biology (G9–12)</button>
+            <button class="subj-btn" onclick="selectSubject('Mathematics', this)">📐 Mathematics (G9–12)</button>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Your Mastery Telemetry</h4>
+          <div class="telemetry-bar-group">
+            <div class="telemetry-row">
+              <span>Physics (Mechanics &amp; E&amp;M)</span>
+              <span id="stat-Physics">78%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill fill-blue" style="width: 78%"></div></div>
+
+            <div class="telemetry-row">
+              <span>Chemistry (Electro &amp; Organic)</span>
+              <span id="stat-Chemistry">84%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill fill-green" style="width: 84%"></div></div>
+
+            <div class="telemetry-row">
+              <span>Biology (Genetics &amp; Cellular)</span>
+              <span id="stat-Biology">81%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill fill-amber" style="width: 81%"></div></div>
+
+            <div class="telemetry-row">
+              <span>Mathematics (Calculus &amp; Vectors)</span>
+              <span id="stat-Mathematics">92%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill fill-purple" style="width: 92%"></div></div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Mode Switcher</h4>
+          <div class="mode-tabs">
+            <button class="mode-tab active" id="tab-drill" onclick="switchPortalMode('drill')">Past-Paper Drill</button>
+            <button class="mode-tab" id="tab-notes" onclick="switchPortalMode('notes')">Revision Notes &amp; Cards</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Interactive Workspace -->
+      <div class="portal-main">
+        <!-- Mode A: Interactive Past-Paper Drill -->
+        <div id="portal-mode-drill">
+          <div class="drill-header-bar">
+            <div>
+              <span class="badge-pill" id="activeQuestionBadge">PHYSICS · GRADE 12 EUEE</span>
+              <h2 id="activeQuestionTopic">Newtonian Mechanics &amp; Conservation Laws</h2>
+            </div>
+            <div class="drill-score-box">
+              <span>Session Score:</span>
+              <strong id="sessionScoreDisplay">0 / 0</strong>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <div class="question-meta">
+              <span id="questionCounter">Question 1 of 8</span>
+              <span id="questionAuthorTag">Author: Gosa Negeso Geleto · Chkela Natural Sciences Team</span>
+            </div>
+
+            <p class="question-stem" id="questionStemText"></p>
+
+            <div class="options-list" id="optionsContainer"></div>
+
+            <!-- Step-by-Step Explanation Panel -->
+            <div class="explanation-box hidden" id="explanationBox">
+              <div class="exp-header">
+                <strong id="expVerdict">Correct!</strong>
+                <span class="exp-badge">Step-by-Step Natural Sciences Solution</span>
+              </div>
+              <p id="expBodyText"></p>
+              <div class="exp-formula" id="expFormulaText"></div>
+            </div>
+
+            <div class="question-footer">
+              <button class="btn btn-outline" onclick="prevQuestion()">← Previous</button>
+              <button class="btn btn-secondary" onclick="toggleAiTutorPrompt()">Ask Chkela AI Tutor ✨</button>
+              <button class="btn btn-primary" onclick="nextQuestion()">Next Question →</button>
+            </div>
+          </div>
+
+          <!-- Integrated AI Tutor Drawer -->
+          <div class="ai-tutor-panel hidden" id="aiTutorPanel">
+            <div class="ai-tutor-header">
+              <div>
+                <strong>🤖 Chkela Bilingual AI Tutor (English / አማርኛ)</strong>
+                <span>Instant conceptual &amp; exam-trap breakdown</span>
+              </div>
+              <button class="btn-close" onclick="toggleAiTutorPrompt()">✕</button>
+            </div>
+            <div class="ai-tutor-body" id="aiTutorResponse"></div>
+          </div>
+        </div>
+
+        <!-- Mode B: High-Yield Revision Notes & Flashcards -->
+        <div id="portal-mode-notes" class="hidden">
+          <div class="drill-header-bar">
+            <div>
+              <span class="badge-pill">CONCISE REVISION</span>
+              <h2>High-Yield Natural Sciences Flashcards &amp; Brain Maps</h2>
+            </div>
+          </div>
+          <div class="notes-grid" id="notesContainer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       VIEW 3: AUTHENTICATION (LOGIN & REGISTRATION PORTAL)
+       ========================================================= -->
+  <section id="view-auth-login" class="view-section hidden">
+    <div class="container auth-wrapper">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="brand-logo">C</div>
+          <h2>Welcome back to Chkela</h2>
+          <p>Sign in with your Ethiopian phone number or email to sync your matric progress.</p>
+        </div>
+
+        <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+          <div class="form-group">
+            <label for="loginIdentifier">Phone Number (+251) or Email Address</label>
+            <input type="text" id="loginIdentifier" placeholder="+251 911 234 567 or student@chkela.com" required />
+            <small class="field-hint">Supports +2519..., 09..., 07..., or registered email</small>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="••••••••" required />
+          </div>
+
+          <div class="form-row-between">
+            <label class="checkbox-label">
+              <input type="checkbox" checked /> Keep me signed in offline
+            </label>
+            <a href="#reset" class="text-link" onclick="alert('Password reset OTP sent via SMS!')">Forgot password?</a>
+          </div>
+
+          <div id="loginErrorMsg" class="auth-alert error hidden"></div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In to Chkela</button>
+        </form>
+
+        <div class="auth-divider"><span>OR QUICK DEMO ACCESS</span></div>
+        <button class="btn btn-secondary btn-block" onclick="loginDemoStudent()">
+          ⚡ One-Click Demo Login (Grade 12 Natural Sciences)
+        </button>
+
+        <p class="auth-switch">
+          Don't have a Chkela account yet?
+          <a href="#register" onclick="switchView('auth-register')">Create your student account →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-auth-register" class="view-section hidden">
+    <div class="container auth-wrapper">
+      <div class="auth-card auth-card-wide">
+        <div class="auth-header">
+          <div class="brand-logo">C</div>
+          <h2>Create your Chkela Student Account</h2>
+          <p>Tailored for Ethiopian high school students in Grades 9 to 12.</p>
+        </div>
+
+        <form id="registerForm" onsubmit="handleRegisterSubmit(event)">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="regFullName">Full Name *</label>
+              <input type="text" id="regFullName" placeholder="e.g., Abebe Kebede" required />
+            </div>
+
+            <div class="form-group">
+              <label for="regPhone">Ethiopian Phone Number *</label>
+              <input type="tel" id="regPhone" placeholder="+251 947 819 388" required />
+              <small class="field-hint">Auto-normalizes 09/07 to +251 international format</small>
+            </div>
+
+            <div class="form-group">
+              <label for="regGrade">Current Grade Level *</label>
+              <select id="regGrade" required>
+                <option value="Grade 12">Grade 12 (Matric Examinee)</option>
+                <option value="Grade 11">Grade 11</option>
+                <option value="Grade 10">Grade 10</option>
+                <option value="Grade 9">Grade 9</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="regStream">Academic Stream *</label>
+              <select id="regStream" required>
+                <option value="Natural Sciences">Natural Sciences (Physics, Chem, Bio, Math)</option>
+                <option value="Social Sciences">Social Sciences (History, Geo, Econ, Math)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="regSchool">High School *</label>
+              <select id="regSchool" required>
+                <option value="Dodola Ifa Boru Special Boarding School">Dodola Ifa Boru Special Boarding School</option>
+                <option value="Sandford International School">Sandford International School</option>
+                <option value="ICS Addis">International Community School (ICS Addis)</option>
+                <option value="Nazareth School">Nazareth School</option>
+                <option value="St. Joseph School">St. Joseph School</option>
+                <option value="Lycée Guébré-Mariam">Lycée Guébré-Mariam</option>
+                <option value="Bingham Academy">Bingham Academy</option>
+                <option value="School of Tomorrow">School of Tomorrow</option>
+                <option value="Ethio Parents' School">Ethio Parents' School</option>
+                <option value="Other Ethiopian High School">Other Ethiopian High School</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="regReferral">Referral / Gift Code (Optional)</label>
+              <input type="text" id="regReferral" placeholder="e.g., CHKELA2026" />
+            </div>
+
+            <div class="form-group">
+              <label for="regPassword">Create Password *</label>
+              <input type="password" id="regPassword" placeholder="Minimum 6 characters" required />
+            </div>
+
+            <div class="form-group">
+              <label for="regConfirmPassword">Confirm Password *</label>
+              <input type="password" id="regConfirmPassword" placeholder="Confirm password" required />
+            </div>
+          </div>
+
+          <div id="registerErrorMsg" class="auth-alert error hidden"></div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Complete Registration &amp; Start Studying</button>
+        </form>
+
+        <p class="auth-switch">
+          Already have an account?
+          <a href="#login" onclick="switchView('auth-login')">Sign in here →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       VIEW 4: ABOUT LOLEARN SOLUTIONS & CONTRIBUTORS
+       ========================================================= -->
+  <section id="view-about" class="view-section hidden">
+    <div class="container about-container">
+      <div class="section-header">
+        <span class="section-tag">LOLEARN SOLUTIONS · ADDIS ABABA, ETHIOPIA</span>
+        <h2>Engineering &amp; Academic Contributors Behind Chkela</h2>
+        <p>Built by Ethiopian engineers, Olympiad medalists, and national top-scorers to democratize high-impact matric preparation for 73,000+ students.</p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Gosa Negeso Geleto (Highlighted Primary Role) -->
+        <div class="team-card featured-contributor">
+          <div class="contributor-top">
+            <div class="contributor-avatar">GN</div>
+            <div>
+              <span class="role-badge">CO-FOUNDER · FRONTEND &amp; NATURAL SCIENCES LEAD</span>
+              <h3>Gosa Negeso Geleto</h3>
+              <p class="contributor-sub">Chief Product Officer · Frontend Developer · Natural Sciences Curriculum Author</p>
+            </div>
+          </div>
+          <p class="contributor-bio">
+            Spearheaded Chkela's responsive frontend web/mobile interface architecture and authored the platform's comprehensive Grade 9–12 <strong>Natural Sciences assessment bank and step-by-step analytical explanations</strong> across Physics, Chemistry, Biology, and Mathematics. Ranked #2 nationally on the Ethiopian Secondary School Leaving Examination (590/600) and graduated as Valedictorian of Dodola Ifa Boru Special Boarding School.
+          </p>
+          <div class="contrib-tags">
+            <span>Frontend Engineering (HTML/CSS/JS)</span>
+            <span>Physics &amp; Chemistry Question Bank</span>
+            <span>Biology &amp; Math Step-by-Step Solutions</span>
+            <span>Offline-First UX Design</span>
+          </div>
+        </div>
+
+        <!-- Tefera Bereket -->
+        <div class="team-card">
+          <div class="contributor-top">
+            <div class="contributor-avatar">TB</div>
+            <div>
+              <span class="role-badge">MOBILE &amp; RELEASE ENGINEERING</span>
+              <h3>Tefera Bereket</h3>
+              <p class="contributor-sub">iOS App Store &amp; Cross-Platform Mobile Developer</p>
+            </div>
+          </div>
+          <p class="contributor-bio">
+            Leads cross-platform mobile packaging, iOS App Store distribution (<code>id6738397728</code>), client runtime optimization, and offline asset caching for Chkela across iPhone, iPad, and Android devices.
+          </p>
+          <div class="contrib-tags">
+            <span>iOS &amp; Android Release</span>
+            <span>Mobile Client Architecture</span>
+            <span>Performance Optimization</span>
+          </div>
+        </div>
+
+        <!-- Samuel Wondimagegnehu Beshah -->
+        <div class="team-card">
+          <div class="contributor-top">
+            <div class="contributor-avatar">SW</div>
+            <div>
+              <span class="role-badge">BACKEND &amp; AI/ML ENGINEER</span>
+              <h3>Samuel Wondimagegnehu Beshah</h3>
+              <p class="contributor-sub">Backend Systems &amp; AI Tutor Engineer</p>
+            </div>
+          </div>
+          <p class="contributor-bio">
+            Architected backend microservices in Python and FastAPI, integrating LangGraph workflows and vector database retrieval to power Chkela's real-time diagnostic telemetry and bilingual AI study assistant.
+          </p>
+          <div class="contrib-tags">
+            <span>Python &amp; FastAPI</span>
+            <span>LangGraph AI Pipelines</span>
+            <span>Vector Databases</span>
+          </div>
+        </div>
+
+        <!-- Kalid Beshir Hasen -->
+        <div class="team-card">
+          <div class="contributor-top">
+            <div class="contributor-avatar">KB</div>
+            <div>
+              <span class="role-badge">CO-FOUNDER &amp; SYSTEMS COLLABORATOR</span>
+              <h3>Kalid Beshir Hasen</h3>
+              <p class="contributor-sub">Co-Founder · Academic Community &amp; Growth</p>
+            </div>
+          </div>
+          <p class="contributor-bio">
+            Co-founded the student peer-learning initiative alongside Gosa at Dodola Ifa Boru Special Boarding School, structuring collaborative study groups, national leaderboard incentives, and school outreach across Ethiopia.
+          </p>
+          <div class="contrib-tags">
+            <span>Product Strategy</span>
+            <span>Peer Study Circles</span>
+            <span>National School Partnerships</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Info Card -->
+      <div class="company-meta-box">
+        <div>
+          <h4>Lolearn Solutions (Chkela)</h4>
+          <p>Golagol – Bole, Addis Ababa 1000, Ethiopia · Package ID: <code>com.chkela.v1</code> (Android) / <code>id6738397728</code> (iOS)</p>
+        </div>
+        <div class="company-links">
+          <span>📞 +251 947 819 388</span>
+          <span>✉️ contact@chkela.com</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gift Code Modal -->
+  <div class="modal-backdrop hidden" id="giftModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="gift-avatar">CG</div>
+        <h3>Claim Your Chkela Study Gift</h3>
+        <button class="btn-close" onclick="closeGiftModal()">✕</button>
+      </div>
+      <p>Enter your promotional or school scholarship code and Ethiopian phone number to unlock full Natural Sciences mock exams.</p>
+      <form onsubmit="handleGiftRedeem(event)">
+        <div class="form-group">
+          <label>Gift / Promo Code</label>
+          <input type="text" id="giftCodeInput" placeholder="e.g., MATRIC590" required />
+        </div>
+        <div class="form-group">
+          <label>Phone Number (+251)</label>
+          <input type="tel" id="giftPhoneInput" placeholder="+251 9..." required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Unlock Gift Access →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">
+          <div class="brand-logo">C</div>
+          <span class="brand-name">Chkela</span>
+        </div>
+        <p class="footer-tagline">Smarter matric prep for Ethiopian students. Developed by Lolearn Solutions, Addis Ababa.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home" onclick="switchView('landing')">Home</a>
+        <a href="#portal" onclick="switchView('portal')">Natural Sciences Lab</a>
+        <a href="#about" onclick="switchView('about')">Contributors</a>
+        <a href="#login" onclick="switchView('auth-login')">Log in</a>
+      </div>
+      <div class="footer-contact">
+        <span>+251 947 819 388</span>
+        <span>contact@chkela.com</span>
+        <span>© 2024–2026 Lolearn Solutions</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
